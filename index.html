@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VERO</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""
+     />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+     <script src="https://cdn.maptiler.com/maptiler-geocoding-control/v2.1.7/leaflet.umd.js"></script>
+     <link href="https://cdn.maptiler.com/maptiler-geocoding-control/v2.1.7/style.css" rel="stylesheet">
+     <script type='module' src="./js/controller.js"></script>
+  </head>
+  <body class="space-grotesk-regular">
+    <header>
+      <nav class="navbar">
+        <div class="logo-container">
+          <p class="logo">VERO</p>
+        </div>
+        <ul class="nav-links">
+          <li class="nav-link active"><a href="#">Home</a></li>
+          <li class="nav-link"><a href="#">Buy</a></li>
+          <li class="nav-link"><a href="#">Rent</a></li>
+          <li class="nav-link"><a href="./agent.html">Agents</a></li>
+          <li class="nav-link"><a href="#">Contact</a></li>
+        </ul>
+        <div class="sign-in">
+          <p class="sign-in-p">sign-in</p>
+        </div>
+      </nav>
+      <section class="auth">
+        <div class="auth-overlay hidden">
+            <figure class="registration auth-modal" >
+              <div class="sign-right">
+              </div>
+              <div class="sign-left">
+                <div class="sign-left-1 sign-body">
+                    <div class="registration-switch">
+                        <span class="log">LogIn</span>
+                        <span class="sign switch-active">Sign Up</span>
+                    </div>
+                    <div class="registration-det">
+                        <h1>Create an account</h1>
+                        <p>Please enter your details to create an account</p>
+                    </div>
+                    <form action="">
+                        <div class="inputBox">
+                            <span>Email address </span>
+                            <input type="email" required="required">
+                            <i></i>
+                        </div>
+                        <div class="inputBox">
+                            <span>Password</span>
+                            <input type="password" required="required">
+                            <i></i>
+                        </div>
+                        <div class="links">
+                            <a href="#">Create an account</a>
+                        </div>
+                        <div class="terms">
+                            <label>
+                            <input type="checkbox" checked>
+                            <span class="terms-check">Please keep me updated by email with the latest news, research findings, reward programs, event updates.</span>
+                            </label>
+                        </div>
+                        <div class="submit">
+                            <button class="submit-bt">Sign UP</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- <div class="sign-left-2">
+                    <div class="registration-switch">
+                        <span class="switch-active">LogIn</span>
+                        <span>Sign Up</span>
+                    </div>
+                    <div class="registration-det">
+                        <h1>Log In</h1>
+                        <p>Please enter your details to log in.</p>
+                    </div>
+                    <form action="">
+                        <div class="inputBox">
+                            <span>Email address </span>
+                            <input type="email" required="required">
+                            <i></i>
+                        </div>
+                        <div class="inputBox">
+                            <span>Password</span>
+                            <input type="password" required="required">
+                            <i></i>
+                        </div>
+                        <div class="links">
+                            <a href="#">Log In</a>
+                        </div>
+                        <div class="terms">
+                            <label>
+                            <input type="checkbox" checked>
+                            <span class="terms-check">Please keep me updated by email with the latest news, research findings, reward programs, event updates.</span>
+                            </label>
+                        </div>
+                        <div class="submit">
+                            <button class='submit-bt'>Log In</button>
+                        </div>
+                    </form>
+                </div> -->
+              </div>
+            </figure>
+        </div>
+      </section>
+      
+      
+      <div class="hero-text">
+        <h1 class="hero-animation">WE BUILD THE FUTURE REAL ESTATE</h1>
+        <p class="hero-animation">Explore homes that match your lifestyle, budget, and dreams — with Vero, it's more than a move. It's coming home.</p>
+        <div class="hero-text-buttons">
+          <button class="hero-text-button"><a href="./property.html">Start Exploring</a></button>
+          <button class="hero-text-button"><a href="./p.html">go</a></button>
+      </div>
+      </div>
+      <section>
+        <div class="place-search">
+          <h1>Find the best place</h1>
+          <div class="place-search-inputs">
+            <div class="place-search-input">
+              <label for="type">Looking for</label>
+              <input type="text" name="" id="look" placeholder="Enter type" class="property-type">
+            </div>
+            <div class="place-search-input">
+              <label for="location">Price</label>
+              <input type="number" name="" id="price" placeholder="price" class="property-price">
+            </div>
+            <div class="place-search-input">
+              <label for="location">Locations</label>
+              <input type="text" name="" id="location" placeholder="location" class="property-location">
+          </div>
+          <div class="place-search-input">
+            <label for="location">Number of rooms</label>
+            <input type="text" name="" id="num-rooms" placeholder="2 Bedroom, 1 Bathroom" class="property-rooms">
+          </div>
+        </div>
+        <div class="place-search-filter">
+          <div class="place-search-filters">
+            <span>Filter:</span>
+            <button>City</button>
+            <button>House</button>
+            <button>Residential</button>
+            <button>Apartment</button>
+          </div>
+          <div class="place-search-button">
+            <button>Search Place</button>
+          </div>
+        </div>
+      </section>
+    </header>
+    <section>
+      <div class="stats-section">
+        <div class="stats-section-text">
+          <div class="stats-section-text-h1">
+                <h1>
+                  Your primary home might begin to feel left out.
+                </h1>
+          </div>
+          <div class="stats-section-text-vid">
+            <video autoplay muted loop>
+              <source src="./img/3410663-uhd_2562_1440_30fps.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <div class="stats-section-video-text">
+              <p>
+                Explore the world of real estate with Vero, it's more than a move. It's coming home.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="stats-section-display">
+          <div class="stats-section-image">
+             <img src="./img/francesca-tosolini-6japTIjUQoI-unsplash.jpg" alt="stats" />
+          </div>
+          <div class="stats-section-display-text">
+            <h1>Big things can happen in small spaces.</h1>
+            <p>with thoughtful design and smart organisation, you can maximize every inch, making room for creativity</p>
+            <button>Details</button>
+          </div>
+          <div class="stats-section-image2">
+            <img src="./img/urban-city-architecture.jpg" alt="stats" />
+            <p>Pricing Start at $256k</p>
+            <button>Explore Properties</button>
+          </div>
+          <div class="stats-section-display-change">
+            <p>whether it's creating a cozy corner for relaxation or transforming a small area into a workspace</p>
+            <button>right</button>
+            <button>left</button>
+          </div>
+        </div>
+
+        <!-- <div class="stats">
+          <div class="stat">
+            <h2>100%</h2>
+            <p>Clients Satisfaction</p>
+          </div>
+          <div class="stat">
+            <h2>500+</h2>
+            <p>Property sells</p>
+          </div>
+          <div class="stat">
+            <h2>200+</h2>
+            <p>Countries & cities</p>
+          </div>
+          <div class="stat">
+            <h2>1000+</h2>
+            <p>Positve reviews</p>
+          </div>
+        </div> -->
+      </div>
+    </section>
+    <section class="map-section">
+      <div id="map">
+        
+      </div>
+      <div class="map-details">
+        <div class="map-det-head">
+          <h2>Interactive Property Map</h2>
+          <p>Navigate the real estate landscape with our interactive map. Discover properties, view details, and find your dream home with ease.</p>
+        </div>
+        <div class="det-inputs">
+            <div class="det-location">
+                <label for="location">Location</label>
+                <input type="text" name="" id="map-location" placeholder="Enter location" class="map-property-location">
+            </div>
+            <div class="det-range">
+                <div class="det-input-range">
+                  <input type="checkbox" name="" id="det-checkbox">
+                  <div class="det-input-range">
+                    <p>Radius</p>
+                    <span id="range-value">50Km</span>
+                  </div>
+                </div>
+                <input type="range" name="" id="map-type" max="100" min='0'>
+            </div>
+            <div class="det-price">
+                <label for="price">Price</label>
+                <input type="text" name="" id="map-price" placeholder="Enter price range" class="map-property-price">
+            </div>
+            <div class="det-filter">
+                <input type="text" name="" id="cities" placeholder="All Cities" class="map-property-cities">
+                <input type="text" name="" id="areas" placeholder="All Areas" class="map-property-cities">
+                <input type="text" name="" id="status" placeholder="Status" class="map-property-cities">
+                <input type="text" name="" id="type" placeholder="Type" class="map-property-cities">
+                <input type="text" name="" id="bedroom" placeholder="Bedrooms" class="map-property-cities">
+                <input type="text" name="" id="bathroom" placeholder="Bathrooms" class="map-property-cities">
+                <input type="text" name="" id="min-area" placeholder="Min. Area" class="map-property-cities">
+                <input type="text" name="" id="max-area" placeholder="Max. Area" class="map-property-cities">
+                <input type="text" name="" id="id" placeholder="Property ID" class="map-property-cities">
+            </div>
+            <button id="map-search-button">Search Properties</button>
+        </div>
+      </div>
+    </section>
+    <section class="prop">
+      <div class="properties">
+      <div class="properties-head">
+        <h1>Features <span>Properties</span> From Around The Globe</h1>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi consequuntur vero esse magnam quidem.
+        </p>
+      </div>
+
+      <div class="properties-body">
+        <!-- <div class="property">
+          <img src="./img/vertical-shot-white-building-clear-sky.jpg" alt="">
+          <div class="property-name-category">
+            <h1>Premium Office Space </h1>
+            <p>Office</p>
+          </div>
+          <p class="property-details">Central Business District</p>
+          <p class="property-details">$550/Monthly</p>
+          <div class="property-specs">
+            <p>up to 20</p>
+            <p>5 rooms</p>
+            <p>500-2000 M2</p>
+          </div>
+        </div>
+
+
+        <div class="property">
+          <img src="./img/vertical-shot-white-building-clear-sky.jpg" alt="">
+          <div class="property-name-category">
+            <h1>Premium Office Space </h1>
+            <p>Office</p>
+          </div>
+          <p class="property-details">Central Business District</p>
+          <p class="property-details">$550/Monthly</p>
+          <div class="property-specs">
+            <p>up to 20</p>
+            <p>5 rooms</p>
+            <p>500-2000 M2</p>
+          </div>
+        </div>
+
+
+        <div class="property">
+          <img src="./img/vertical-shot-white-building-clear-sky.jpg" alt="">
+          <div class="property-name-category">
+            <h1>Premium Office Space </h1>
+            <p>Office</p>
+          </div>
+          <p class="property-details">Central Business District</p>
+          <p class="property-details">$550/Monthly</p>
+          <div class="property-specs">
+            <p>up to 20</p>
+            <p>5 rooms</p>
+            <p>500-2000 M2</p>
+          </div>
+        </div>
+
+
+        <div class="property">
+          <img src="./img/vertical-shot-white-building-clear-sky.jpg" alt="">
+          <div class="property-name-category">
+            <h1>Premium Office Space </h1>
+            <p>Office</p>
+          </div>
+          <p class="property-details">Central Business District</p>
+          <p class="property-details">$550/Monthly</p>
+          <div class="property-specs">
+            <p>up to 20</p>
+            <p>5 rooms</p>
+            <p>500-2000 M2</p>
+          </div>
+        </div>
+
+
+        <div class="property">
+          <img src="./img/vertical-shot-white-building-clear-sky.jpg" alt="">
+          <div class="property-name-category">
+            <h1>Premium Office Space </h1>
+            <p>Office</p>
+          </div>
+          <p class="property-details">Central Business District</p>
+          <p class="property-details">$550/Monthly</p>
+          <div class="property-specs">
+            <p>up to 20</p>
+            <p>5 rooms</p>
+            <p>500-2000 M2</p>
+          </div>
+        </div> -->
+      </div>
+      </div>
+    </section>
+    <div class="categories">
+      <div class="category-top">
+        <div class="category-top-right">
+           <h1>Browse Property Category</h1>
+           <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate, soluta eligendi ea minima cumque iusto!
+           </p>
+        </div>
+        <div class="category-top-left">
+          <button><i>right</i></button>
+          <p>02/07</p>
+          <button><i>left</i></button>
+        </div>
+      </div>
+      <div class="category-bottom">
+        <div class="category">
+          <div class="category-logo"></div>
+          <p>New Beach →</p>
+        </div>
+
+        <div class="category">
+          <div class="category-logo"></div>
+          <p>New Beach →</p>
+        </div>
+
+        <div class="category">
+          <div class="category-logo"></div>
+          <p>New Beach →</p>
+        </div>
+
+        <div class="category">
+          <div class="category-logo"></div>
+          <p>New Beach →</p>
+        </div>
+
+        <div class="category">
+          <div class="category-logo"></div>
+          <p>New Beach →</p>
+        </div>
+
+        <div class="category">
+          <div class="category-logo"></div>
+          
+          <p>New Beach →</p>
+        </div>
+
+        <div class="category">
+          <div class="category-logo"></div>
+          
+          <p>New Beach →</p>
+        </div>
+
+        <div class="category">
+          <div class="category-logo"></div>
+          
+          <p>New Beach →</p>
+        </div>
+
+        <div class="category">
+          <div class="category-logo"></div>
+          <p>New Beach →</p>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="customers-feedbacks">
+      <div class="customers-feedbacks-head">
+        <h1>Features <span>Properties</span> From Around The Globe</h1>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi consequuntur vero esse magnam quidem.
+        </p>
+      </div>
+      <div class="customers-feedbacks-body">
+        <div class="customer-feedback one">
+          <h1>50k+</h1>
+          <p>Sustained Customers</p>
+        </div>
+        <div class="customer-feedback two">
+          <h1>10+</h1>
+          <p>Years of Experience</p>
+        </div>
+        <div class="customer-feedback three">
+          <h1>112+</h1>
+          <p>Award Winnings</p>
+        </div>
+        <div class="customer-feedback four">
+          <h1>1200+</h1>
+          <p>Property Collections</p>
+        </div>
+        <div class="customer-feedback five">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo soluta recusandae cupiditate labore ea aliquid et sed animi dolorem repellat?
+          </p>
+          <img src="./img/digital-marketing-agency-ntwrk-g39p1kDjvSY-unsplash.jpg" alt="">
+          <div class="five-after">hello</div>
+        </div>
+      </div>
+    </div>
+    <section class="market-preview">
+    <div class="market-container">
+      <h2>🏡 Market Reality Snapshot</h2>
+      <p>Get the latest insights on Nigeria’s property market. Know where prices are rising, where to invest, and how fast homes are selling.</p>
+
+      <div class="market-stats">
+        <div class="stat-card">
+          <h3>₦75M</h3>
+          <p>Avg. Home Price</p>
+        </div>
+        <div class="stat-card">
+          <h3>22 Days</h3>
+          <p>Avg. Time on Market</p>
+        </div>
+        <div class="stat-card">
+          <h3>6.2%</h3>
+          <p>Top Rental Yield (Lekki)</p>
+        </div>
+      </div>
+
+      <a href="/market.html" class="market-cta">View Full Market Insights →</a>
+    </div>
+    </section>
+    <div class="agents">
+       <h1>Meet Our Top Agents</h1>
+       <div class="agents-profiles">
+         <div class="agent">
+            <div class="agent-image">
+              <img src="./img/beautiful-city-park.jpg" alt="">
+            </div>
+            <div class="agents-det">
+              <div class="agents-details">
+              <h2>Sarrah Johnson</h2>
+              <p>Luxury Real Estate Specialist</p>
+              </div>
+              <div class="agent-stat">
+              <span>8 Years Experience</span>
+              <span>20 Listings</span>
+              </div>
+              <a href="./agent.html">View Profile</a>
+            </div>
+         </div>
+         <div class="agent">
+            <div class="agent-image">
+              <img src="./img/beautiful-city-park.jpg" alt="">
+            </div>
+            <div class="agents-det">
+              <div class="agents-details">
+              <h2>Sarrah Johnson</h2>
+              <p>Luxury Real Estate Specialist</p>
+              </div>
+              <div class="agent-stat">
+              <span>8 Years Experience</span>
+              <span>20 Listings</span>
+              </div>
+              <a href="./agent.html">View Profile</a>
+            </div>
+         </div>
+         <div class="agent">
+            <div class="agent-image">
+              <img src="./img/beautiful-city-park.jpg" alt="">
+            </div>
+            <div class="agents-det">
+              <div class="agents-details">
+              <h2>Sarrah Johnson</h2>
+              <p>Luxury Real Estate Specialist</p>
+              </div>
+              <div class="agent-stat">
+              <span>8 Years Experience</span>
+              <span>20 Listings</span>
+              </div>
+              <a href="./agent.html">View Profile</a>
+            </div>
+         </div>
+         <div class="agent">
+            <div class="agent-image">
+              <img src="./img/beautiful-city-park.jpg" alt="">
+            </div>
+            <div class="agents-det">
+              <div class="agents-details">
+              <h2>Sarrah Johnson</h2>
+              <p>Luxury Real Estate Specialist</p>
+              </div>
+              <div class="agent-stat">
+              <span>8 Years Experience</span>
+              <span>20 Listings</span>
+              </div>
+              <a href="./agent.html">View Profile</a>
+            </div>
+         </div>
+       </div>
+    </div>
+    <section class="newsletter">
+       <h1>Subscribe to our newsletter</h1>
+       <p>
+        Sign up today and get free sample up to 100 records.</p>
+        <form action=""> 
+        <input type="text" name="" id="" placeholder="Enter your email address">
+        <button>Get started</button>
+        </form>
+        <div class="expert">
+          <p>Our experts are ready to help</p>
+          <img src="" alt="">
+        </div>
+    </section>
+    <footer>
+      <div class="foot">
+      <div class="footer-top">
+          <p class="footer-logo">VERO</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      </div> 
+      <div class="footer-mid">
+        <div class="footer-mid-right">
+          <div class="properties-footer ft">
+          <h1>Properties</h1>
+          <ul>
+            <li><a href="#">Properties</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Log In</a></li>
+            <li><a href="#">Agents</a></li>
+            <li><a href="#">Partnership</a></li>
+          </ul>
+          </div>
+          <div class="about-us ft">
+          <h1>About Us</h1>
+          <ul>
+            <li><a href="#">About Vero</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Feartures</a></li>
+            <li><a href="#">Offers</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+          </div>
+          <div class="resources ft">
+          <h1>Resources</h1>
+          <ul>
+            <li><a href="#">Help center</a></li>
+            <li><a href="#">Book a consultation</a></li>
+            <li><a href="#">Martket research</a></li>
+            <li><a href="#">Map</a></li>
+            <li><a href="#">Agents consultation</a></li>
+          </ul>
+          </div>
+          <div class="contact ft">
+            <h1>Contact</h1>
+            <ul>
+              <li><a href="">+234815146812</a></li>
+              <li><a href="">abdulahisholabi@gmail.com</a></li>
+              <li><a href="">Lagos, Nigeria</a></li>
+              <li><a href="">+234815146812</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="socials">
+          <div class="lang">
+            <i></i>
+            <p>Portugal</p>
+            <i></i>
+          </div>
+          <ul>
+          <li><a href="#">tweet</a></li>
+          <li><a href="#">face</a></li>
+          <li><a href="#">linked</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+          <p>&copy;2019 Vero &reg; by abdul, Inc.</p>
+          <div class="terms">
+            <a href="#">Terms of Service</a>
+            <a href="#">Privacy Policy</a>
+          </div>
+      </div>
+      </div>
+       
+    </footer>
+   
+  </body>
+</html>

@@ -1,0 +1,165 @@
+{
+  "properties": [
+    {
+      "id": 1,
+      "title": "Modern Villa with Pool",
+      "location": "Ikeja, Lagos",
+      "lat": 6.6018,
+      "lng": 3.3515,
+      "price": 150000,
+      "size": 420,
+      "bedrooms": 4,
+      "bathrooms": 3,
+      "description": "A luxurious villa with modern amenities, swimming pool, and private garden.",
+      "image_url": [
+        "../img/house1/008.jpg",
+        "../img/house1/009.jpg"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Contemporary City Home",
+      "location": "Abuja",
+      "lat": 9.0765,
+      "lng": 7.3986,
+      "price": 120000,
+      "size": 300,
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "description": "Stylish modern house located in the heart of the city with excellent views.",
+      "image_url": [
+        "../img/house1/008.jpg",
+        "../img/house1/009.jpg"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Cozy Apartment Downtown",
+      "location": "Port Harcourt",
+      "lat": 4.8156,
+      "lng": 7.0498,
+      "price": 80000,
+      "size": 180,
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "description": "Perfect for singles or couples, this apartment offers comfort and easy access to the city.",
+      "image_url": [
+        "../img/house1/009.jpg",
+        "../img/house1/008.jpg"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Luxury Penthouse",
+      "location": "Ikoyi, Lagos",
+      "lat": 6.4541,
+      "lng": 3.4347,
+      "price": 500000,
+      "size": 600,
+      "bedrooms": 5,
+      "bathrooms": 5,
+      "description": "Exclusive penthouse with panoramic views, high-end interiors, and private elevator access.",
+      "image_url": [
+        "../img/house1/012.jpg",
+        "../img/house1/009.jpg"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Beachfront Bungalow",
+      "location": "Lekki, Lagos",
+      "lat": 6.4698,
+      "lng": 3.5852,
+      "price": 200000,
+      "size": 250,
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "description": "Charming bungalow located on the beachfront with stunning sea views.",
+      "image_url": [
+        "../img/house1/030.jpg",
+        "../img/house1/009.jpg"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Smart Tech House",
+      "location": "Abuja",
+      "lat": 9.0658,
+      "lng": 7.4723,
+      "price": 300000,
+      "size": 350,
+      "bedrooms": 4,
+      "bathrooms": 3,
+      "description": "Equipped with the latest smart home technologies for security and convenience.",
+      "image_url": [
+        "../img/house1/035.jpg",
+        "../img/house1/009.jpg"
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Family Duplex",
+      "location": "Enugu",
+      "lat": 6.5244,
+      "lng": 7.5086,
+      "price": 110000,
+      "size": 280,
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "description": "Spacious duplex perfect for families, located in a serene residential area.",
+      "image_url": [
+        "../img/house1/036.jpg",
+        "../img/house1/009.jpg"
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Countryside Villa",
+      "location": "Ibadan",
+      "lat": 7.3775,
+      "lng": 3.9470,
+      "price": 95000,
+      "size": 350,
+      "bedrooms": 4,
+      "bathrooms": 3,
+      "description": "Escape the city with this peaceful countryside villa surrounded by greenery.",
+      "image_url": [
+        "../img/house1/040.jpg",
+        "../img/house1/009.jpg"
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Studio Apartment",
+      "location": "Lagos Island",
+      "lat": 6.4540,
+      "lng": 3.3947,
+      "price": 60000,
+      "size": 90,
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "description": "Compact and affordable studio apartment ideal for working professionals.",
+      "image_url": [
+        "../img/house1/045.jpg",
+        "../img/house1/009.jpg"
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Modern Townhouse",
+      "location": "Abuja",
+      "lat": 9.0579,
+      "lng": 7.4951,
+      "price": 170000,
+      "size": 320,
+      "bedrooms": 3,
+      "bathrooms": 3,
+      "description": "Elegant townhouse with modern design, private parking, and spacious interiors.",
+      "image_url": [
+        "../img/house1/047.jpg",
+        "../img/house1/009.jpg"
+      ]
+    }
+  ]
+}
+
