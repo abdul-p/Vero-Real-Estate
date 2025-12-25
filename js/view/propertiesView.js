@@ -18,20 +18,30 @@ class PropertiesView extends View {
 
     _generateMarkupProperty(results) {
         return `
-                <div class="property">
-                    <img src="${results.image_url[0]}" alt="${results.title}">
-                    <div class="property-name-category">
-                        <h1>${results.title}</h1>
-                        <p>${results.location}</p>
+                <li class="property-card">
+                    <article>
+                    <!-- IMAGE / CAROUSEL -->
+                    <div class="property-media">
+                        <img src="${results.image_url[0]}" alt="${results.title}" />
+                        <button class="save-btn">♡</button>
+                        <p class="save-btn-r">${results.category}</p>
                     </div>
-                    <p class="property-details">${results.description}</p>
-                    <p class="property-details">$${results.price}/Monthly</p>
-                    <div class="property-specs">
-                        <p>up to 20</p>
-                        <p>${results.bedrooms} rooms</p>
-                        <p>${results.bathrooms} bathrooms</p>
+
+                    <!-- PROPERTY INFO -->
+                    <div class="property-info">
+                        <p class="property-type">${results.category}</p>
+                        <p class="property-price">$${results.price}/Monthly</p>
+                        <a href="/property/vero_102" class="property-card-address">
+                        ${results.description.split(' ').splice(0, 7).join(' ')}
+                        </a>
+                        <ul class="property-meta">
+                        <li><b>${results.bedrooms}</b> Beds</li>
+                        <li><b>${results.bathrooms}</b> Baths</li>
+                        </ul>
+                        
                     </div>
-                </div>
+                    </article>
+                </li>
             `
     }
 }

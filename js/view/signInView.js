@@ -68,6 +68,7 @@ class signInView extends View {
 
     submit (handler) {
         const submit = document.querySelector('.sign-left');
+        if(!submit) return ;
         submit.addEventListener('click', (e) => {
             e.preventDefault();
             console.log(e.target);

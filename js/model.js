@@ -1,5 +1,5 @@
 import { AJAX } from './helper.js';
-import { API_URL } from '../config.js';
+
 
 export const state = {
     properties: [],
@@ -13,6 +13,7 @@ export const state = {
         bathrooms: 0,
         description: '',
         image_url: '',
+        category: ''
     },
     search: {
         query: '',  
@@ -47,7 +48,8 @@ export const addProperty = async function(url) {
             price : rec.price,
             bedrooms: rec.bedrooms,
             bathrooms: rec.bathrooms,
-            size: rec.size
+            size: rec.size,
+            category : rec.category
         }
     });
     console.log(state);
@@ -58,7 +60,7 @@ export const addProperty = async function(url) {
 };
 
 console.log(state.properties);
-addProperty(API_URL);
+
 
 // export const handler = (handle) => {
 //     window.addEventListener('load', handle);

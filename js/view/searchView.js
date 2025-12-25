@@ -2,6 +2,7 @@ import view from "./view.js";
 
 class SearchView extends view{
     
+    _parentElement = document.querySelector('.properties')
     _location = document.querySelector('.property-location');
     _propertyType = document.querySelector('.property-type');
     _price = document.querySelector('.property-price');
@@ -18,14 +19,16 @@ class SearchView extends view{
 
     getQuery(){
         // const query = this._parentElement.querySelector('.place-search-button').value;
-        const type = this._propertyType.value;
-        const price = this._price.value;
-        const local = this._location.value;
-        const rooms = this._rooms.value;
+        const input = {
+            type: this._propertyType.value,
+            price: this._price.value,
+            location: this._location.value,
+            rooms: this._rooms.value
+        }
 
-        console.log(type, price, local, rooms);
+        console.log(input);
         this._clearInput();
-        // return query;
+        return input;
     }
 
     _clearInput(){
@@ -35,21 +38,48 @@ class SearchView extends view{
         this._rooms.value = '';
     }
 
-    filterProperties(data) {
-        const filtered = data.filter(p => {
-            return (p.type === input.type || input.type === '') &&
-                   (p.location === input.location || input.location === '') &&
-                   (p.price <= input.price || input.price === '') &&
-                   (p.rooms >= input.rooms || input.rooms === '');
-        }
-        );
-        return filtered;
-    }
+    
 
     displayFilteredProperties(properties) {
         //goto properties page and display properties on
-        const hre = window.location.href;
-        console.log(properties, hre);
+        // window.location.href = './property.html';
+        // this.render(properties);
+        // console.log(properties);
+        
+    }
+
+    _generateMarkup(data) {
+            console.log(data);
+          return data.map(data => this._generateMarkupProperty(data)).join('');
+    }
+
+    _generateMarkupProperty(results) {
+        return `
+                <li class="property-card">
+                    <article>
+                    <!-- IMAGE / CAROUSEL -->
+                    <div class="property-media">
+                        <img src="${results.image_url[0]}" alt="${results.title}" />
+                        <button class="save-btn">♡</button>
+                        <p class="save-btn-r">${results.category}</p>
+                    </div>
+
+                    <!-- PROPERTY INFO -->
+                    <div class="property-info">
+                        <p class="property-type">${results.category}</p>
+                        <p class="property-price">$${results.price}/Monthly</p>
+                        <a href="/property/vero_102" class="property-card-address">
+                        ${results.description.split(' ').splice(0, 7).join(' ')}
+                        </a>
+                        <ul class="property-meta">
+                        <li><b>${results.bedrooms}</b> Beds</li>
+                        <li><b>${results.bathrooms}</b> Baths</li>
+                        </ul>
+                        
+                    </div>
+                    </article>
+                </li>
+            `
     }
 
 }

@@ -10,6 +10,7 @@
       "size": 420,
       "bedrooms": 4,
       "bathrooms": 3,
+      "category" : "New",
       "description": "A luxurious villa with modern amenities, swimming pool, and private garden.",
       "image_url": [
         "../img/house1/008.jpg",
@@ -26,6 +27,7 @@
       "size": 300,
       "bedrooms": 3,
       "bathrooms": 2,
+      "category" : "Apartment",
       "description": "Stylish modern house located in the heart of the city with excellent views.",
       "image_url": [
         "../img/house1/008.jpg",
@@ -42,6 +44,7 @@
       "size": 180,
       "bedrooms": 2,
       "bathrooms": 1,
+      "category" : "Studio",
       "description": "Perfect for singles or couples, this apartment offers comfort and easy access to the city.",
       "image_url": [
         "../img/house1/009.jpg",
@@ -58,6 +61,7 @@
       "size": 600,
       "bedrooms": 5,
       "bathrooms": 5,
+      "category" : "Penthouse",
       "description": "Exclusive penthouse with panoramic views, high-end interiors, and private elevator access.",
       "image_url": [
         "../img/house1/012.jpg",
@@ -74,6 +78,7 @@
       "size": 250,
       "bedrooms": 3,
       "bathrooms": 2,
+      "category" : "Category",
       "description": "Charming bungalow located on the beachfront with stunning sea views.",
       "image_url": [
         "../img/house1/030.jpg",
@@ -90,6 +95,7 @@
       "size": 350,
       "bedrooms": 4,
       "bathrooms": 3,
+      "category" : "Studio",
       "description": "Equipped with the latest smart home technologies for security and convenience.",
       "image_url": [
         "../img/house1/035.jpg",
@@ -106,6 +112,7 @@
       "size": 280,
       "bedrooms": 3,
       "bathrooms": 2,
+      "category" : "Duplex",
       "description": "Spacious duplex perfect for families, located in a serene residential area.",
       "image_url": [
         "../img/house1/036.jpg",
@@ -122,6 +129,7 @@
       "size": 350,
       "bedrooms": 4,
       "bathrooms": 3,
+      "category" : "Villa",
       "description": "Escape the city with this peaceful countryside villa surrounded by greenery.",
       "image_url": [
         "../img/house1/040.jpg",
@@ -138,6 +146,7 @@
       "size": 90,
       "bedrooms": 1,
       "bathrooms": 1,
+      "category" : "Apartment",
       "description": "Compact and affordable studio apartment ideal for working professionals.",
       "image_url": [
         "../img/house1/045.jpg",
@@ -154,6 +163,7 @@
       "size": 320,
       "bedrooms": 3,
       "bathrooms": 3,
+      "category" : "New",
       "description": "Elegant townhouse with modern design, private parking, and spacious interiors.",
       "image_url": [
         "../img/house1/047.jpg",

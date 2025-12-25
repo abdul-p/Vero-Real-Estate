@@ -19,6 +19,8 @@ class HomePageMapView extends View {
     
 
     renderMap() {
+        if (!L) return;
+        if(document.body.classList.contains("properties-page")) return ;
         // let long , lat  ;
         window.navigator.geolocation.getCurrentPosition(pos => {
             this._lat = pos.coords.latitude;
@@ -47,6 +49,7 @@ class HomePageMapView extends View {
 
     handleSearch(handler) {
         const location = this._inputLocation;
+        if (!this._submitBtn) return;
         this._submitBtn.addEventListener("click", e => {
             e.preventDefault();
             const query = location.value;

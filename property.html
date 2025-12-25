@@ -5,8 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="gallery.css">
     <title>Properties</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""
+     />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+     <script src="https://cdn.maptiler.com/maptiler-geocoding-control/v2.1.7/leaflet.umd.js"></script>
+     <link href="https://cdn.maptiler.com/maptiler-geocoding-control/v2.1.7/style.css" rel="stylesheet">
+    <script type="module" src='./js/controller.js'></script>
 </head>
-<body>
+<body class="properties-page">
     <header>
         <nav class="navbar">
           <div class="logo-container">
@@ -24,183 +40,411 @@
           </div>
         </nav>
     </header>
-    <main>
-      <div class="map"></div>
-      <aside>
-        <section class="search-box">
-          <div class="det-inputs">
-            <div class="det-location">
-                <label for="location">Location</label>
-                <input type="text" name="" id="map-location" placeholder="Enter location" class="map-property-location">
-            </div>
-            <div class="det-range">
-                <div class="det-input-range">
-                  <input type="checkbox" name="" id="det-checkbox">
-                  <div class="det-input-range">
-                    <p>Radius</p>
-                    <span id="range-value">50Km</span>
-                  </div>
-                </div>
-                <input type="range" name="" id="map-type" max="100" min='0'>
-            </div>
-            <div class="select">
-              <label for="real-estate">Real estate</label>
-              <select id="selection" name="selection">
-                  <option value="" disabled selected hidden>Status</option>
-                  <option value="apple">Apartment</option>
-                  <option value="banana">Studio</option>
-                  <option value="orange">Bungalow</option>
-                  <option value="mango">Skyscraper</option>
-              </select>
-            </div>
-            <div class="det-price">
-                <label for="price">Price</label>
-                <input type="text" name="" id="map-price" placeholder="Enter price range" class="map-property-price">
-            </div>
-            <div class="det-filter">
-                <input type="text" name="" id="cities" placeholder="All Cities" class="map-property-cities">
-                <input type="text" name="" id="areas" placeholder="All Areas" class="map-property-cities">
-                <input type="text" name="" id="status" placeholder="Status" class="map-property-cities">
-                <input type="text" name="" id="type" placeholder="Type" class="map-property-cities">
-                <input type="text" name="" id="bedroom" placeholder="Bedrooms" class="map-property-cities">
-                <input type="text" name="" id="bathroom" placeholder="Bathrooms" class="map-property-cities">
-                <input type="text" name="" id="min-area" placeholder="Min. Area" class="map-property-cities">
-                <input type="text" name="" id="cities" placeholder="Max. Area" class="map-property-cities">
-                <input type="text" name="" id="cities" placeholder="Property ID" class="map-property-cities">
-            </div>
-          </div>
-          <button class="search-button" id="map-search-button">Search</button>
-        </section>
-        <div class="properties">
-          <div class="property">
-              <img src="./img/vertical-shot-white-building-clear-sky.jpg" alt="">
-              <div class="property-body">
-                <div class="property-name-category">
-                  <h1>Premium Office Space </h1>
-                  <p>Office</p>
-                </div>
-                <p class="property-details">Central Business District</p>
-                <p class="property-details">$550/Monthly</p>
-                <div class="property-specs">
-                  <p>up to 20</p>
-                  <p>5 rooms</p>
-                  <p>500-2000 M2</p>
-                </div>
+    <section class="auth">
+        <div class="auth-overlay hidden">
+            <figure class="registration auth-modal" >
+              <div class="sign-right">
               </div>
-          </div>
-          <div class="property">
-              <img src="./img/vertical-shot-white-building-clear-sky.jpg" alt="">
-              <div class="property-body">
-                <div class="property-name-category">
-                <h1>Premium Office Space </h1>
-                <p>Office</p>
+              <div class="sign-left">
+                <div class="sign-left-1 sign-body">
+                    <div class="registration-switch">
+                        <span class="log">LogIn</span>
+                        <span class="sign switch-active">Sign Up</span>
+                    </div>
+                    <div class="registration-det">
+                        <h1>Create an account</h1>
+                        <p>Please enter your details to create an account</p>
+                    </div>
+                    <form action="">
+                        <div class="inputBox">
+                            <span>Email address </span>
+                            <input type="email" required="required">
+                            <i></i>
+                        </div>
+                        <div class="inputBox">
+                            <span>Password</span>
+                            <input type="password" required="required">
+                            <i></i>
+                        </div>
+                        <div class="links">
+                            <a href="#">Create an account</a>
+                        </div>
+                        <div class="terms">
+                            <label>
+                            <input type="checkbox" checked>
+                            <span class="terms-check">Please keep me updated by email with the latest news, research findings, reward programs, event updates.</span>
+                            </label>
+                        </div>
+                        <div class="submit">
+                            <button class="submit-bt">Sign UP</button>
+                        </div>
+                    </form>
                 </div>
-                <p class="property-details">Central Business District</p>
-                <p class="property-details">$550/Monthly</p>
-                <div class="property-specs">
-                  <p>up to 20</p>
-                  <p>5 rooms</p>
-                  <p>500-2000 M2</p>
-                </div>
+                <!-- <div class="sign-left-2">
+                    <div class="registration-switch">
+                        <span class="switch-active">LogIn</span>
+                        <span>Sign Up</span>
+                    </div>
+                    <div class="registration-det">
+                        <h1>Log In</h1>
+                        <p>Please enter your details to log in.</p>
+                    </div>
+                    <form action="">
+                        <div class="inputBox">
+                            <span>Email address </span>
+                            <input type="email" required="required">
+                            <i></i>
+                        </div>
+                        <div class="inputBox">
+                            <span>Password</span>
+                            <input type="password" required="required">
+                            <i></i>
+                        </div>
+                        <div class="links">
+                            <a href="#">Log In</a>
+                        </div>
+                        <div class="terms">
+                            <label>
+                            <input type="checkbox" checked>
+                            <span class="terms-check">Please keep me updated by email with the latest news, research findings, reward programs, event updates.</span>
+                            </label>
+                        </div>
+                        <div class="submit">
+                            <button class='submit-bt'>Log In</button>
+                        </div>
+                    </form>
+                </div> -->
               </div>
-          </div>
-          <div class="property">
-              <img src="./img/vertical-shot-white-building-clear-sky.jpg" alt="">
-              <div class="property-body">
-                <div class="property-name-category">
-                <h1>Premium Office Space </h1>
-                <p>Office</p>
-                </div>
-                <p class="property-details">Central Business District</p>
-                <p class="property-details">$550/Monthly</p>
-                <div class="property-specs">
-                  <p>up to 20</p>
-                  <p>5 rooms</p>
-                  <p>500-2000 M2</p>
-                </div>
-              </div>
-          </div>
-          <div class="property">
-              <img src="./img/vertical-shot-white-building-clear-sky.jpg" alt="">
-              <div class="property-body">
-                <div class="property-name-category">
-                <h1>Premium Office Space </h1>
-                <p>Office</p>
-                </div>
-                <p class="property-details">Central Business District</p>
-                <p class="property-details">$550/Monthly</p>
-                <div class="property-specs">
-                  <p>up to 20</p>
-                  <p>5 rooms</p>
-                  <p>500-2000 M2</p>
-                </div>
-              </div>
-          </div>
-          <div class="property">
-              <img src="./img/vertical-shot-white-building-clear-sky.jpg" alt="">
-              <div class="property-body">
-                <div class="property-name-category">
-                <h1>Premium Office Space </h1>
-                <p>Office</p>
-                </div>
-                <p class="property-details">Central Business District</p>
-                <p class="property-details">$550/Monthly</p>
-                <div class="property-specs">
-                  <p>up to 20</p>
-                  <p>5 rooms</p>
-                  <p>500-2000 M2</p>
-                </div>
-              </div>
-          </div>
-          <div class="property">
-              <img src="./img/vertical-shot-white-building-clear-sky.jpg" alt="">
-              <div class="property-body">
-                <div class="property-name-category">
-                <h1>Premium Office Space </h1>
-                <p>Office</p>
-                </div>
-                <p class="property-details">Central Business District</p>
-                <p class="property-details">$550/Monthly</p>
-                <div class="property-specs">
-                  <p>up to 20</p>
-                  <p>5 rooms</p>
-                  <p>500-2000 M2</p>
-                </div>
-              </div>
-          </div>
-          <div class="property">
-              <img src="./img/vertical-shot-white-building-clear-sky.jpg" alt="">
-              <div class="property-body">
-                <div class="property-name-category">
-                <h1>Premium Office Space </h1>
-                <p>Office</p>
-                </div>
-                <p class="property-details">Central Business District</p>
-                <p class="property-details">$550/Monthly</p>
-                <div class="property-specs">
-                  <p>up to 20</p>
-                  <p>5 rooms</p>
-                  <p>500-2000 M2</p>
-                </div>
-              </div>
-          </div>
-          <div class="property">
-              <img src="./img/vertical-shot-white-building-clear-sky.jpg" alt="">
-              <div class="property-body">
-                <div class="property-name-category">
-                <h1>Premium Office Space </h1>
-                <p>Office</p>
-                </div>
-                <p class="property-details">Central Business District</p>
-                <p class="property-details">$550/Monthly</p>
-                <div class="property-specs">
-                  <p>up to 20</p>
-                  <p>5 rooms</p>
-                  <p>500-2000 M2</p>
-                </div>
-              </div>
-          </div>
+            </figure>
         </div>
+      </section>
+    <div class="main-top">
+      <div class="main-top-location">
+        <input type="text" name="" id="property-location" placeholder="Enter location" class="property-location">
+      </div>
+      
+      <div class="main-top-filter">
+        <button>
+          For Sale
+          <span>▲▼△▽</span>
+        </button>
+        <button>
+          Price
+          <span>▲▼△▽</span>
+        </button>
+        <button>
+          More
+          <span>▲▼△▽</span>
+        </button>
+      </div>
+      
+      <button> Save search</button>
+    </div>
+    <main>
+      <div class="map" id="pmap"></div>
+      <aside>
+        <ul class="properties">
+          <li class="property-card">
+            <article>
+              <!-- IMAGE / CAROUSEL -->
+              <div class="property-media">
+                <img src="./img/house1/009.jpg" alt="3 Bedroom Duplex" />
+                <button class="save-btn">♡</button>
+                <p class="save-btn-r">New</p>
+              </div>
+
+              <!-- PROPERTY INFO -->
+              <div class="property-info">
+                <p class="property-type">House for sale</p>
+                <p class="property-price">₦120,000,000</p>
+                <a href="/property/vero_102" class="property-card-address">
+                  Lekki Phase 1, Lagos
+                </a>
+                <ul class="property-meta">
+                  <li><b>3</b> Beds</li>
+                  <li><b>2</b> Baths</li>
+                </ul>
+                
+              </div>
+
+            </article>
+          </li>
+          <li class="property-card">
+            <article>
+              <!-- IMAGE / CAROUSEL -->
+              <div class="property-media">
+                <img src="./img/house1/009.jpg" alt="3 Bedroom Duplex" />
+                <button class="save-btn">♡</button>
+                <p class="save-btn-r">New</p>
+              </div>
+
+              <!-- PROPERTY INFO -->
+              <div class="property-info">
+                <p class="property-type">House for sale</p>
+                <p class="property-price">₦120,000,000</p>
+                <a href="/property/vero_102" class="property-card-address">
+                  Lekki Phase 1, Lagos
+                </a>
+                <ul class="property-meta">
+                  <li><b>3</b> Beds</li>
+                  <li><b>2</b> Baths</li>
+                </ul>
+                
+              </div>
+
+            </article>
+          </li>
+          <li class="property-card">
+            <article>
+              <!-- IMAGE / CAROUSEL -->
+              <div class="property-media">
+                <img src="./img/house1/009.jpg" alt="3 Bedroom Duplex" />
+                <button class="save-btn">♡</button>
+                <p class="save-btn-r">New</p>
+              </div>
+
+              <!-- PROPERTY INFO -->
+              <div class="property-info">
+                <p class="property-type">House for sale</p>
+                <p class="property-price">₦120,000,000</p>
+                <a href="/property/vero_102" class="property-card-address">
+                  Lekki Phase 1, Lagos
+                </a>
+                <ul class="property-meta">
+                  <li><b>3</b> Beds</li>
+                  <li><b>2</b> Baths</li>
+                </ul>
+                
+              </div>
+
+            </article>
+          </li>
+          <li class="property-card">
+            <article>
+              <!-- IMAGE / CAROUSEL -->
+              <div class="property-media">
+                <img src="./img/house1/009.jpg" alt="3 Bedroom Duplex" />
+                <button class="save-btn">♡</button>
+                <p class="save-btn-r">New</p>
+              </div>
+
+              <!-- PROPERTY INFO -->
+              <div class="property-info">
+                <p class="property-type">House for sale</p>
+                <p class="property-price">₦120,000,000</p>
+                <a href="/property/vero_102" class="property-card-address">
+                  Lekki Phase 1, Lagos
+                </a>
+                <ul class="property-meta">
+                  <li><b>3</b> Beds</li>
+                  <li><b>2</b> Baths</li>
+                </ul>
+                
+              </div>
+
+            </article>
+          </li>
+          <li class="property-card">
+            <article>
+              <!-- IMAGE / CAROUSEL -->
+              <div class="property-media">
+                <img src="./img/house1/009.jpg" alt="3 Bedroom Duplex" />
+                <button class="save-btn">♡</button>
+                <p class="save-btn-r">New</p>
+              </div>
+
+              <!-- PROPERTY INFO -->
+              <div class="property-info">
+                <p class="property-type">House for sale</p>
+                <p class="property-price">₦120,000,000</p>
+                <a href="/property/vero_102" class="property-card-address">
+                  Lekki Phase 1, Lagos
+                </a>
+                <ul class="property-meta">
+                  <li><b>3</b> Beds</li>
+                  <li><b>2</b> Baths</li>
+                </ul>
+                
+              </div>
+
+            </article>
+          </li>
+          <li class="property-card">
+            <article>
+              <!-- IMAGE / CAROUSEL -->
+              <div class="property-media">
+                <img src="./img/house1/009.jpg" alt="3 Bedroom Duplex" />
+                <button class="save-btn">♡</button>
+                <p class="save-btn-r">New</p>
+              </div>
+
+              <!-- PROPERTY INFO -->
+              <div class="property-info">
+                <p class="property-type">House for sale</p>
+                <p class="property-price">₦120,000,000</p>
+                <a href="/property/vero_102" class="property-card-address">
+                  Lekki Phase 1, Lagos
+                </a>
+                <ul class="property-meta">
+                  <li><b>3</b> Beds</li>
+                  <li><b>2</b> Baths</li>
+                </ul>
+                
+              </div>
+
+            </article>
+          </li>
+          <li class="property-card">
+            <article>
+              <!-- IMAGE / CAROUSEL -->
+              <div class="property-media">
+                <img src="./img/house1/009.jpg" alt="3 Bedroom Duplex" />
+                <button class="save-btn">♡</button>
+                <p class="save-btn-r">New</p>
+              </div>
+
+              <!-- PROPERTY INFO -->
+              <div class="property-info">
+                <p class="property-type">House for sale</p>
+                <p class="property-price">₦120,000,000</p>
+                <a href="/property/vero_102" class="property-card-address">
+                  Lekki Phase 1, Lagos
+                </a>
+                <ul class="property-meta">
+                  <li><b>3</b> Beds</li>
+                  <li><b>2</b> Baths</li>
+                </ul>
+                
+              </div>
+
+            </article>
+          </li>
+          <li class="property-card">
+            <article>
+              <!-- IMAGE / CAROUSEL -->
+              <div class="property-media">
+                <img src="./img/house1/009.jpg" alt="3 Bedroom Duplex" />
+                <button class="save-btn">♡</button>
+                <p class="save-btn-r">New</p>
+              </div>
+
+              <!-- PROPERTY INFO -->
+              <div class="property-info">
+                <p class="property-type">House for sale</p>
+                <p class="property-price">₦120,000,000</p>
+                <a href="/property/vero_102" class="property-card-address">
+                  Lekki Phase 1, Lagos
+                </a>
+                <ul class="property-meta">
+                  <li><b>3</b> Beds</li>
+                  <li><b>2</b> Baths</li>
+                </ul>
+                
+              </div>
+
+            </article>
+          </li>
+          <li class="property-card">
+            <article>
+              <!-- IMAGE / CAROUSEL -->
+              <div class="property-media">
+                <img src="./img/house1/009.jpg" alt="3 Bedroom Duplex" />
+                <button class="save-btn">♡</button>
+                <p class="save-btn-r">New</p>
+              </div>
+
+              <!-- PROPERTY INFO -->
+              <div class="property-info">
+                <p class="property-type">House for sale</p>
+                <p class="property-price">₦120,000,000</p>
+                <a href="/property/vero_102" class="property-card-address">
+                  Lekki Phase 1, Lagos
+                </a>
+                <ul class="property-meta">
+                  <li><b>3</b> Beds</li>
+                  <li><b>2</b> Baths</li>
+                </ul>
+                
+              </div>
+
+            </article>
+          </li>
+          <li class="property-card">
+            <article>
+              <!-- IMAGE / CAROUSEL -->
+              <div class="property-media">
+                <img src="./img/house1/009.jpg" alt="3 Bedroom Duplex" />
+                <button class="save-btn">♡</button>
+                <p class="save-btn-r">New</p>
+              </div>
+
+              <!-- PROPERTY INFO -->
+              <div class="property-info">
+                <p class="property-type">House for sale</p>
+                <p class="property-price">₦120,000,000</p>
+                <a href="/property/vero_102" class="property-card-address">
+                  Lekki Phase 1, Lagos
+                </a>
+                <ul class="property-meta">
+                  <li><b>3</b> Beds</li>
+                  <li><b>2</b> Baths</li>
+                </ul>
+                
+              </div>
+
+            </article>
+          </li>
+          <li class="property-card">
+            <article>
+              <!-- IMAGE / CAROUSEL -->
+              <div class="property-media">
+                <img src="./img/house1/009.jpg" alt="3 Bedroom Duplex" />
+                <button class="save-btn">♡</button>
+                <p class="save-btn-r">New</p>
+              </div>
+
+              <!-- PROPERTY INFO -->
+              <div class="property-info">
+                <p class="property-type">House for sale</p>
+                <p class="property-price">₦120,000,000</p>
+                <a href="/property/vero_102" class="property-card-address">
+                  Lekki Phase 1, Lagos
+                </a>
+                <ul class="property-meta">
+                  <li><b>3</b> Beds</li>
+                  <li><b>2</b> Baths</li>
+                </ul>
+                
+              </div>
+
+            </article>
+          </li>
+          <li class="property-card">
+            <article>
+              <!-- IMAGE / CAROUSEL -->
+              <div class="property-media">
+                <img src="./img/house1/009.jpg" alt="3 Bedroom Duplex" />
+                <button class="save-btn">♡</button>
+                <p class="save-btn-r">New</p>
+              </div>
+
+              <!-- PROPERTY INFO -->
+              <div class="property-info">
+                <p class="property-type">House for sale</p>
+                <p class="property-price">₦120,000,000</p>
+                <a href="/property/vero_102" class="property-card-address">
+                  Lekki Phase 1, Lagos
+                </a>
+                <ul class="property-meta">
+                  <li><b>3</b> Beds</li>
+                  <li><b>2</b> Baths</li>
+                </ul>
+                
+              </div>
+
+            </article>
+          </li>
+        </ul>
       </aside>
     </main>
     <footer>
