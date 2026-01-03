@@ -18,7 +18,7 @@ class PropertiesView extends View {
 
     _generateMarkupProperty(results) {
         return `
-                <li class="property-card">
+                <li class="property-card" data-id="${results.id}">
                     <article>
                     <!-- IMAGE / CAROUSEL -->
                     <div class="property-media">

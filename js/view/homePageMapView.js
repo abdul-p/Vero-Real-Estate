@@ -19,6 +19,7 @@ class HomePageMapView extends View {
     
 
     renderMap() {
+        if (!document.getElementById('map')) return;
         if (!L) return;
         if(document.body.classList.contains("properties-page")) return ;
         // let long , lat  ;

@@ -28,6 +28,8 @@ export default class View {
         `;
     }
 
+    
+
     // _generateMarkup(data) {
     //     return `
     //         <div class="property">

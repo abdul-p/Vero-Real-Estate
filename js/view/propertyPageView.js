@@ -53,11 +53,13 @@ class propertyPageView extends View {
             bedrooms : params.get('bedrooms')
         }
 
+
         return inputs;
     }
 
     filterProperties(properties, filter) {
         console.log(properties, filter)
+        
         const filtered = properties.filter(p => {
             return( 
                 (p.location.toLowerCase() === filter.location.toLowerCase() )

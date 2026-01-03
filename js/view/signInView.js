@@ -31,6 +31,7 @@ class signInView extends View {
 
     addHandlerCloseModal() {
          const modal = document.querySelector('.auth-overlay');
+         if (!modal) return;
          modal.addEventListener('click', (e) => {
             e.preventDefault();
             if(e.target === modal) {

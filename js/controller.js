@@ -8,6 +8,7 @@ import signInView from './view/signInView.js';
 import UserView from './view/UserView.js';
 import homePageMapView from './view/homePageMapView.js';
 import propertyPageView from './view/propertyPageView.js';
+import propertyView from './view/propertyView.js';
 // import resultsView from './view/resultsView.js';
 
 
@@ -39,6 +40,17 @@ function controlProperties () {
     console.log(model.state.properties)
 
 }      
+
+function controlProperty (e) {
+        console.log(e);
+        const params = new URLSearchParams();
+
+        if (e) params.set("id", e);
+        if (!e) return ;
+
+        window.location.href =  `p.html?${params.toString()}`
+        console.log('property-clicked')
+}
 
 const controlPropertyPage  = async function () { 
         // propertyPageView.renderMap()
@@ -102,6 +114,8 @@ function controlSearch(){
     if (price) params.set("price", price);
     if (bedrooms) params.set("bedrooms", bedrooms);
 
+    if (!location & !type & !price & !bedrooms ) return ;
+
     window.location.href =  `property.html?${params.toString()}`
     
     const all = model.state.properties; 
@@ -148,8 +162,23 @@ async function init() {
         controlPropertyPage();
         console.log('property page loaded');
 
+    };
+
+    if (document.body.classList.contains("properties-page") || document.body.classList.contains("Home") ) {
+        propertyView.addhandleproperty(controlProperty);
+        console.log('property')
     }
 
+    if( document.body.classList.contains("property-page") ) {
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get("id");
+        console.log("Property ID from URL:", id);
+        const property = model.state.properties.find(prop => prop.id === id);
+        console.log(property);
+        propertyView.render(property);
+        // propertyPageView.renderMapForProperty(property);
+    }
+    
 
     
 }
