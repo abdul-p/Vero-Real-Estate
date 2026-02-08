@@ -502,7 +502,13 @@ footer {
   border-right: 1px solid var(--color-card-bg);
   padding-right: 3px;
 }
-
+.top{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 93vw;
+  margin: 20px auto;
+}
 .agents{
   display: flex;
   flex-direction: column;
@@ -566,7 +572,7 @@ footer {
   justify-content: center;
   padding: 10px;
   gap: 10px;
-  width: 60%;
+  min-width: 60%;
   background-color: rgb(252, 252, 252);
   border-radius: 5px;
 }
@@ -595,7 +601,7 @@ footer {
 }
 #agent-form button{
   min-width: 100px;
-  height: 35px;;
+  height: 35px;
   color: var(--color-card-bg);
   border: 1px solid var(--color-dark); 
 }
@@ -607,12 +613,13 @@ footer {
 .agent-card{
   display: flex;
   justify-content: space-between;
-  gap: 15px;
-  padding: 10px;
+  gap: 10px;
+  /* padding: 10px; */
   background-color: rgb(252, 252, 252);
   border-radius: 5px;
-  align-items: center;
+  /* align-items: center; */
   margin-bottom: 10px;
+  height: 210px;
 }
 .agent-card:hover {
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
@@ -625,27 +632,40 @@ footer {
 .agent-list-top{
   margin-bottom: 10px;
 }
+.agents-img {
+  width: 40%;
+  /* height: 100%; */
+}
 .agents-img img{
-  width: 170px;
-  height: 170px;
-  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+
+  border-radius: 5px 0px 0px 5px;
 }
 .agent-role{
   outline: 1px solid var(--color-success);
   color: var(--color-success);
-  min-width: 50px;
-  display: inline;
+  width: 50px;
+  height: 30px;
+  /* display: inline; */
   padding: 3px;
   border-radius: 5px;
 }
-.card-right{
+.agent-details{
+  width: 60%;
+  padding: 5px;
+}
+.card{
   display: flex;
   gap: 15px;
+  width: 100%;
 }
-.card-left{
+.card-det-left{
     display: flex;
-    justify-content: start;
-    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    /* width: 100%; */
 }
 .agents-list button{
   background-color: var(--color-dark);
@@ -746,4 +766,74 @@ footer {
 .agent-list-loc ul li a{
   text-decoration: none;
   color: var(--color-primary);
+}
+
+.property-manager{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 93vw;
+  margin: 20px auto;
+}
+.property-manager h1{
+  color: var(--color-dark);
+  font-size: 2.2rem;
+  font-weight: 600;
+  text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
+}
+.property-manager form {
+  display: flex;
+  justify-content: space-around;
+}
+.property-managers {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 93vw;
+  margin: 20px auto;
+}
+.property-managers h1{
+  color: var(--color-dark);
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
+}
+.pm-cards {
+  display: flex;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 93vw;
+  margin: 20px auto;
+}
+.property-manager-card{
+  height: 300px;
+  width: 300px;
+  background-color: var(--color-dark);
+  color: white;
+  border-radius: 10px;
+}
+.pm-img {
+  height: 45%;
+  width: 100%;
+  /* border-radius: 10px 10px 0px 0px ; */
+}
+.pm-img img{
+  width: 100%;
+  height: 100%;
+  border-radius: 10px 10px 0px 0px ;
+}
+.pm-details{
+  padding: 10px;
+}
+.pm-name {
+  color: var(--color-card-bg);
+  font-size: 1.2rem; 
+  font-weight: 500;
+}
+.property-manager-inputs input{
+  width: 200px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
 }

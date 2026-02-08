@@ -20,6 +20,7 @@
      crossorigin=""></script>
      <script src="https://cdn.maptiler.com/maptiler-geocoding-control/v2.1.7/leaflet.umd.js"></script>
      <link href="https://cdn.maptiler.com/maptiler-geocoding-control/v2.1.7/style.css" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <script type="module" src='./js/controller.js'></script>
 </head>
 <body class="properties-page">
@@ -30,8 +31,8 @@
           </div>
           <ul class="nav-links">
             <li class="nav-link active"><a href="./index.html">Home</a></li>
-            <li class="nav-link"><a href="#">Buy</a></li>
-            <li class="nav-link"><a href="#">Rent</a></li>
+            <li class="nav-link buy"><a href="#">Buy</a></li>
+            <li class="nav-link rent"><a href="#">Rent</a></li>
             <li class="nav-link"><a href="./agent.html">Agents</a></li>
             <li class="nav-link"><a href="#">Contact</a></li>
           </ul>
@@ -140,10 +141,10 @@
       
       <button> Save search</button>
     </div>
-    <main>
+    <main id="property-main">
       <div class="map" id="pmap"></div>
-      <aside>
-        <ul class="properties">
+      <aside id="property-aside">
+        <ul class="properties-body">
           <li class="property-card">
             <article>
               <!-- IMAGE / CAROUSEL -->
@@ -445,6 +446,11 @@
             </article>
           </li>
         </ul>
+        <div class="pagination">
+          <button class="pagination-bt ">Prev</button>
+          <p class="pagination-bt pg-text"><span class="pg-text-start">1</span> of <span class="pg-text-end">6</span></p>
+          <button class="pagination-bt next hidden">Next</button>
+        </div>
       </aside>
     </main>
     <footer>

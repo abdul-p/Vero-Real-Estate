@@ -2,26 +2,76 @@ import View from "./view.js";
 import { KEY, MAPTILER_URL, MAP_ATTRIBUTE } from "../../config.js";
 class propertyPageView extends View {
     #pmap;
-    _parentElement = document.querySelector('.properties');
+    _parentElement = document.querySelector('.properties-body');
+    _buyBtn = document.querySelector('.buy');
+    _rentBtn = document.querySelector('.rent');
+    _category = document.querySelector('.category-bottom');
+    _paginationButton = document.querySelector('.pagination');
+    _nextbt = document.querySelector('.next');
     _lat;
     _long;
     _markerLayer;
+    _currPaginatedPage = 0 ;
 
-    
+    addHandlerBuyClick(handler) {
+        this._buyBtn.addEventListener('click', handler);
+    }
+
+    addHandlerRentClick(handler) {
+        this._rentBtn.addEventListener('click', handler);
+    }
+
+    addHandlerPagination(handler) {
+        if (!this._paginationButton) return ;
+        let curPage =  this._currPaginatedPage;
+        this._paginationButton.addEventListener('click', (e) =>  {
+            // this._currPaginatedPage = 0;
+            e.preventDefault();
+           const button = e.target.closest('.pagination-bt').textContent ;
+           console.log(button)
+          if (button === 'Prev' && curPage > 0 ) {
+            curPage = curPage - 1 ;
+          };
+
+          if (button === 'Next') curPage = curPage + 1 ;
+          console.log(curPage);
+          
+          handler(curPage);
+        });
+        
+        
+    }
 
     _generateMarkup(data) {
             console.log(data);
           return data.map(data => this._generateMarkupProperty(data)).join('');
     }
 
+    addhandleCategoryClick(handler) {
+        if (!this._category) return;
+        this._category.addEventListener('click', function(e) {
+            const category = e.target.closest('.category-link');    
+            if (!category) return;
+            const categoryText = category.textContent.replace('→', '').trim();
+            handler(categoryText);
+        });
+    }
+
+    
+
     _generateMarkupProperty(results) {
+        console.log(results)
         return `
-                <li class="property-card">
+                <li class="property-card" data-id="${results.id}">
                     <article>
                     <!-- IMAGE / CAROUSEL -->
                     <div class="property-media">
                         <img src="${results.image_url[0]}" alt="${results.title}" />
-                        <button class="save-btn">♡</button>
+                        <button class="save-btn">
+                            <span class="material-symbols-outlined">
+                                favorite
+                            </span>
+                        </button>
                         <p class="save-btn-r">${results.category}</p>
                     </div>
 
@@ -33,8 +83,18 @@ class propertyPageView extends View {
                         ${results.description.split(' ').splice(0, 7).join(' ')}
                         </a>
                         <ul class="property-meta">
-                        <li><b>${results.bedrooms}</b> Beds</li>
-                        <li><b>${results.bathrooms}</b> Baths</li>
+                        <li>
+                            <span class="material-symbols-outlined">
+                                bed
+                            </span>
+                            <b>${results.bedrooms}</b> Beds
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined">
+                                shower
+                            </span>
+                            <b>${results.bathrooms}</b> Baths
+                        </li>
                         </ul>
                         
                     </div>
@@ -62,7 +122,8 @@ class propertyPageView extends View {
         
         const filtered = properties.filter(p => {
             return( 
-                (p.location.toLowerCase() === filter.location.toLowerCase() )
+                console.log(p.location?.toLowerCase() , filter.location?.toLowerCase()),
+                (p.location?.toLowerCase() === filter.location?.toLowerCase() )
                    && (Number(p.price) <= Number(filter.price) || filter.price === '')
                 )
         }
@@ -82,6 +143,7 @@ class propertyPageView extends View {
                     this._lat = pos.coords.latitude;
                     this._long = pos.coords.longitude;
                     console.log(this._lat , this._long);
+                    console.log(L);
                 this.#pmap = L.map('pmap').setView([this._lat, this._long] , 13);
                 // Initialize the map
                 

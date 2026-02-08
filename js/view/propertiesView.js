@@ -23,7 +23,11 @@ class PropertiesView extends View {
                     <!-- IMAGE / CAROUSEL -->
                     <div class="property-media">
                         <img src="${results.image_url[0]}" alt="${results.title}" />
-                        <button class="save-btn">♡</button>
+                        <button class="save-btn">
+                            <span class="material-symbols-outlined">
+                                favorite
+                            </span>
+                        </button>
                         <p class="save-btn-r">${results.category}</p>
                     </div>
 
@@ -35,8 +39,18 @@ class PropertiesView extends View {
                         ${results.description.split(' ').splice(0, 7).join(' ')}
                         </a>
                         <ul class="property-meta">
-                        <li><b>${results.bedrooms}</b> Beds</li>
-                        <li><b>${results.bathrooms}</b> Baths</li>
+                        <li>
+                            <span class="material-symbols-outlined">
+                                bed
+                            </span>
+                            <b>${results.bedrooms}</b> Beds
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined">
+                                shower
+                            </span>
+                            <b>${results.bathrooms}</b> Baths
+                        </li>
                         </ul>
                         
                     </div>

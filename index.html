@@ -20,20 +20,21 @@
      crossorigin=""></script>
      <script src="https://cdn.maptiler.com/maptiler-geocoding-control/v2.1.7/leaflet.umd.js"></script>
      <link href="https://cdn.maptiler.com/maptiler-geocoding-control/v2.1.7/style.css" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
      <script type='module' src="./js/controller.js"></script>
   </head>
   <body class="space-grotesk-regular Home">
     <header>
       <nav class="navbar">
         <div class="logo-container">
-          <p class="logo">VERO</p>
+          <a class="logo"href="./index.html">VERO</a>
         </div>
         <ul class="nav-links">
           <li class="nav-link active"><a href="#">Home</a></li>
-          <li class="nav-link"><a href="#">Buy</a></li>
-          <li class="nav-link"><a href="#">Rent</a></li>
+          <li class="nav-link buy"><a href="#">Buy</a></li>
+          <li class="nav-link rent"><a href="#">Rent</a></li>
           <li class="nav-link"><a href="./agent.html">Agents</a></li>
-          <li class="nav-link"><a href="#">Contact</a></li>
+          <li class="nav-link nav-contact"><a href="" >Contact</a></li>
         </ul>
         <div class="sign-in">
           <p class="sign-in-p">sign-in</p>
@@ -123,8 +124,15 @@
         <h1 class="hero-animation">WE BUILD THE FUTURE REAL ESTATE</h1>
         <p class="hero-animation">Explore homes that match your lifestyle, budget, and dreams — with Vero, it's more than a move. It's coming home.</p>
         <div class="hero-text-buttons">
-          <button class="hero-text-button"><a href="./property.html">Start Exploring</a></button>
-          <button class="hero-text-button"><a href="./p.html">go</a></button>
+          <button class="hero-text-button">
+            <a href="./property.html">Explore
+            <span class="material-symbols-outlined">open_in_new</span></a>
+          </button>
+          <button class="hero-text-button">
+            <a href="./p.html">
+              <span class="material-symbols-outlined">arrow_outward</span>
+            </a>
+          </button>
       </div>
       </div>
       <section>
@@ -151,10 +159,10 @@
         <div class="place-search-filter">
           <div class="place-search-filters">
             <span>Filter:</span>
-            <button>City</button>
-            <button>House</button>
-            <button>Residential</button>
-            <button>Apartment</button>
+            <button class="filter-bt">City</button>
+            <button class="filter-bt">House</button>
+            <button class="filter-bt">Residential</button>
+            <button class="filter-bt">Apartment</button>
           </div>
           <div class="place-search-button">
             <button>Search Place</button>
@@ -199,8 +207,8 @@
           </div>
           <div class="stats-section-display-change">
             <p>whether it's creating a cozy corner for relaxation or transforming a small area into a workspace</p>
-            <button>right</button>
-            <button>left</button>
+            <button><span class="material-symbols-outlined">arrow_back</span></button>
+            <button><span class="material-symbols-outlined">arrow_forward</span></button>
           </div>
         </div>
 
@@ -236,34 +244,24 @@
         <div class="det-inputs">
             <div class="det-location">
                 <label for="location">Location</label>
-                <input type="text" name="" id="map-location" placeholder="Enter location" class="map-property-location">
+                <input type="text" name="" id="map-location" placeholder="Enter location" class="map-property-input">
             </div>
-            <div class="det-range">
-                <div class="det-input-range">
-                  <input type="checkbox" name="" id="det-checkbox">
-                  <div class="det-input-range">
-                    <p>Radius</p>
-                    <span id="range-value">50Km</span>
-                  </div>
-                </div>
-                <input type="range" name="" id="map-type" max="100" min='0'>
-            </div>
-            <div class="det-price">
+            <div class="det-location">
                 <label for="price">Price</label>
-                <input type="text" name="" id="map-price" placeholder="Enter price range" class="map-property-price">
+                <input type="text" name="" id="map-price" placeholder="Enter price range" class="map-property-input">
             </div>
-            <div class="det-filter">
-                <input type="text" name="" id="cities" placeholder="All Cities" class="map-property-cities">
-                <input type="text" name="" id="areas" placeholder="All Areas" class="map-property-cities">
-                <input type="text" name="" id="status" placeholder="Status" class="map-property-cities">
-                <input type="text" name="" id="type" placeholder="Type" class="map-property-cities">
-                <input type="text" name="" id="bedroom" placeholder="Bedrooms" class="map-property-cities">
-                <input type="text" name="" id="bathroom" placeholder="Bathrooms" class="map-property-cities">
-                <input type="text" name="" id="min-area" placeholder="Min. Area" class="map-property-cities">
-                <input type="text" name="" id="max-area" placeholder="Max. Area" class="map-property-cities">
-                <input type="text" name="" id="id" placeholder="Property ID" class="map-property-cities">
+            <div class="det-location">
+                <label for="bedroom">Bedrooms</label>
+                 <input type="text" name="" id="bedroom" placeholder="Bedrooms" class="map-property-input">
             </div>
-            <button id="map-search-button">Search Properties</button>
+            <div class="det-location">
+                <label for="bathroom">Bathrooms</label>
+                <input type="text" name="" id="bathroom" placeholder="Bathrooms" class="map-property-input">
+            </div>
+            
+            <button id="map-search-button">
+              <span class="material-symbols-outlined">search</span>Search Properties
+            </button>
         </div>
       </div>
     </section>
@@ -275,87 +273,94 @@
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi consequuntur vero esse magnam quidem.
         </p>
       </div>
-
-      <ul class="properties-body">
-        <!-- <div class="property">
-          <img src="./img/vertical-shot-white-building-clear-sky.jpg" alt="">
-          <div class="property-name-category">
-            <h1>Premium Office Space </h1>
-            <p>Office</p>
+      <div class="properties-body-container">
+          <div class="properties-button">
+            <button class="bt-left p-scroll" data-name="left"><</button>
+            <button class="bt-right p-scroll" data-name="right" >></button>
           </div>
-          <p class="property-details">Central Business District</p>
-          <p class="property-details">$550/Monthly</p>
-          <div class="property-specs">
-            <p>up to 20</p>
-            <p>5 rooms</p>
-            <p>500-2000 M2</p>
+          <ul class="properties-body">
+          
+          <!-- <div class="property">
+            <img src="./img/vertical-shot-white-building-clear-sky.jpg" alt="">
+            <div class="property-name-category">
+              <h1>Premium Office Space </h1>
+              <p>Office</p>
+            </div>
+            <p class="property-details">Central Business District</p>
+            <p class="property-details">$550/Monthly</p>
+            <div class="property-specs">
+              <p>up to 20</p>
+              <p>5 rooms</p>
+              <p>500-2000 M2</p>
+            </div>
           </div>
-        </div>
-
-
-        <div class="property">
-          <img src="./img/vertical-shot-white-building-clear-sky.jpg" alt="">
-          <div class="property-name-category">
-            <h1>Premium Office Space </h1>
-            <p>Office</p>
-          </div>
-          <p class="property-details">Central Business District</p>
-          <p class="property-details">$550/Monthly</p>
-          <div class="property-specs">
-            <p>up to 20</p>
-            <p>5 rooms</p>
-            <p>500-2000 M2</p>
-          </div>
-        </div>
 
 
-        <div class="property">
-          <img src="./img/vertical-shot-white-building-clear-sky.jpg" alt="">
-          <div class="property-name-category">
-            <h1>Premium Office Space </h1>
-            <p>Office</p>
+          <div class="property">
+            <img src="./img/vertical-shot-white-building-clear-sky.jpg" alt="">
+            <div class="property-name-category">
+              <h1>Premium Office Space </h1>
+              <p>Office</p>
+            </div>
+            <p class="property-details">Central Business District</p>
+            <p class="property-details">$550/Monthly</p>
+            <div class="property-specs">
+              <p>up to 20</p>
+              <p>5 rooms</p>
+              <p>500-2000 M2</p>
+            </div>
           </div>
-          <p class="property-details">Central Business District</p>
-          <p class="property-details">$550/Monthly</p>
-          <div class="property-specs">
-            <p>up to 20</p>
-            <p>5 rooms</p>
-            <p>500-2000 M2</p>
-          </div>
-        </div>
 
 
-        <div class="property">
-          <img src="./img/vertical-shot-white-building-clear-sky.jpg" alt="">
-          <div class="property-name-category">
-            <h1>Premium Office Space </h1>
-            <p>Office</p>
+          <div class="property">
+            <img src="./img/vertical-shot-white-building-clear-sky.jpg" alt="">
+            <div class="property-name-category">
+              <h1>Premium Office Space </h1>
+              <p>Office</p>
+            </div>
+            <p class="property-details">Central Business District</p>
+            <p class="property-details">$550/Monthly</p>
+            <div class="property-specs">
+              <p>up to 20</p>
+              <p>5 rooms</p>
+              <p>500-2000 M2</p>
+            </div>
           </div>
-          <p class="property-details">Central Business District</p>
-          <p class="property-details">$550/Monthly</p>
-          <div class="property-specs">
-            <p>up to 20</p>
-            <p>5 rooms</p>
-            <p>500-2000 M2</p>
-          </div>
-        </div>
 
 
-        <div class="property">
-          <img src="./img/vertical-shot-white-building-clear-sky.jpg" alt="">
-          <div class="property-name-category">
-            <h1>Premium Office Space </h1>
-            <p>Office</p>
+          <div class="property">
+            <img src="./img/vertical-shot-white-building-clear-sky.jpg" alt="">
+            <div class="property-name-category">
+              <h1>Premium Office Space </h1>
+              <p>Office</p>
+            </div>
+            <p class="property-details">Central Business District</p>
+            <p class="property-details">$550/Monthly</p>
+            <div class="property-specs">
+              <p>up to 20</p>
+              <p>5 rooms</p>
+              <p>500-2000 M2</p>
+            </div>
           </div>
-          <p class="property-details">Central Business District</p>
-          <p class="property-details">$550/Monthly</p>
-          <div class="property-specs">
-            <p>up to 20</p>
-            <p>5 rooms</p>
-            <p>500-2000 M2</p>
-          </div>
-        </div> -->
-      </ul>
+
+
+          <div class="property">
+            <img src="./img/vertical-shot-white-building-clear-sky.jpg" alt="">
+            <div class="property-name-category">
+              <h1>Premium Office Space </h1>
+              <p>Office</p>
+            </div>
+            <p class="property-details">Central Business District</p>
+            <p class="property-details">$550/Monthly</p>
+            <div class="property-specs">
+              <p>up to 20</p>
+              <p>5 rooms</p>
+              <p>500-2000 M2</p>
+            </div>
+          </div> -->
+          </ul>
+      </div>
+      
       </div>
     </section>
     <div class="categories">
@@ -367,58 +372,84 @@
            </p>
         </div>
         <div class="category-top-left">
-          <button><i>right</i></button>
+          <button class="category-bt"><span class="material-symbols-outlined">arrow_back</span></button>
           <p>02/07</p>
-          <button><i>left</i></button>
+          <button class="category-bt"><span class="material-symbols-outlined">arrow_forward</span></button>
         </div>
       </div>
       <div class="category-bottom">
         <div class="category">
           <div class="category-logo"></div>
-          <p>New Beach →</p>
+          <p class="category-link">Apartment <span class="material-symbols-outlined">
+            line_end_arrow_notch
+            </span>
+          </p>
         </div>
 
         <div class="category">
           <div class="category-logo"></div>
-          <p>New Beach →</p>
+          <p class="category-link">Villa <span class="material-symbols-outlined">
+            line_end_arrow_notch
+            </span>
+          </p>
         </div>
 
         <div class="category">
           <div class="category-logo"></div>
-          <p>New Beach →</p>
+          <p class="category-link">Studio <span class="material-symbols-outlined">
+            line_end_arrow_notch
+            </span>
+          </p>
         </div>
 
         <div class="category">
           <div class="category-logo"></div>
-          <p>New Beach →</p>
+          <p class="category-link">New Property <span class="material-symbols-outlined">
+            line_end_arrow_notch
+            </span>
+          </p>
         </div>
 
         <div class="category">
           <div class="category-logo"></div>
-          <p>New Beach →</p>
+          <p class="category-link">Penthouse <span class="material-symbols-outlined">
+            line_end_arrow_notch
+            </span>
+          </p>
         </div>
 
         <div class="category">
           <div class="category-logo"></div>
-          
-          <p>New Beach →</p>
+          <p class="category-link">Apartment <span class="material-symbols-outlined">
+            line_end_arrow_notch
+            </span>
+          </p>
         </div>
 
         <div class="category">
           <div class="category-logo"></div>
-          
-          <p>New Beach →</p>
+
+          <p class="category-link">Luxury <span class="material-symbols-outlined">
+            line_end_arrow_notch
+            </span>
+          </p>
         </div>
 
         <div class="category">
           <div class="category-logo"></div>
-          
-          <p>New Beach →</p>
+
+          <p class="category-link">Halls <span class="material-symbols-outlined">
+            line_end_arrow_notch
+            </span>
+          </p>
         </div>
 
         <div class="category">
           <div class="category-logo"></div>
-          <p>New Beach →</p>
+          <p class="category-link">Land <span class="material-symbols-outlined">
+            line_end_arrow_notch
+            </span>
+          </p>
         </div>
 
       </div>
@@ -549,7 +580,7 @@
          </div>
        </div>
     </div>
-    <section class="newsletter">
+    <section class="newsletter" id="newsletter">
        <h1>Subscribe to our newsletter</h1>
        <p>
         Sign up today and get free sample up to 100 records.</p>

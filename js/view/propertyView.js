@@ -3,7 +3,7 @@ import View from "./view.js";
 class PropertyView extends View{
 
     _parentElement = document.querySelector('.main-property');
-    _propertyhandler = document.querySelector('.prop');
+    _propertyhandler = document.querySelector('.properties-body');
 
     addhandleproperty (handler) {
         console.log('at- first')
@@ -28,7 +28,7 @@ class PropertyView extends View{
                                     <li><a href="">H</a></li>
                                     <li><a href="./index.html">Home/</a></li>
                                     <li><a href="./property.html">Properties/</a></li>
-                                    <li><a href="./">${data.name}</a></li>
+                                    <li><a href="./p.html">${data.title}</a></li>
                                     
                                 </ul>
                                 <ul class="button-nav">
@@ -39,7 +39,7 @@ class PropertyView extends View{
                             </div>
                             <div class="property-short-info">
                                 <div class="property-name">
-                                    <h2>${data.name}</h2>
+                                    <h2>${data.title}</h2>
                                     <p>$${data.price}/mo</p>
                                 </div>
                                 <p class="short-info-address">2436 SW 8th St, Miami,FL 33135, USA</p>
@@ -78,15 +78,15 @@ class PropertyView extends View{
                         </div>
                         <div class="property-overview-main">
                             <div class="property-overview-info">
-                                <p>Apartment</p>
+                                <p>${data.propertyType}</p>
                                 <p>property-type</p>
                             </div>
                             <div class="property-overview-info">
-                                <p>Apartment</p>
+                                <p>${data.bedrooms}</p>
                                 <p>Bedroom</p>
                             </div>
                             <div class="property-overview-info">
-                                <p>Apartment</p>
+                                <p>${data.bathrooms}</p>
                                 <p>Bathrooms</p>
                             </div>
                             <div class="property-overview-info">

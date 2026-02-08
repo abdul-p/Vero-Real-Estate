@@ -2,11 +2,12 @@ import view from "./view.js";
 
 class SearchView extends view{
     
-    _parentElement = document.querySelector('.properties')
+    _parentElement = document.querySelector('.properties');
     _location = document.querySelector('.property-location');
     _propertyType = document.querySelector('.property-type');
     _price = document.querySelector('.property-price');
     _rooms = document.querySelector('.property-rooms');
+    
 
     addHandlerSearch(handler){
         const SearchButton = document.querySelector('.place-search-button');
@@ -18,12 +19,13 @@ class SearchView extends view{
     }
 
     getQuery(){
-        // const query = this._parentElement.querySelector('.place-search-button').value;
+        
+
         const input = {
             type: this._propertyType.value,
             price: this._price.value,
             location: this._location.value,
-            rooms: this._rooms.value
+            rooms: this._rooms.value,
         }
 
         console.log(input);
