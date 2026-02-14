@@ -11,4 +11,4 @@ export const AJAX = async function(url) {
     }
 };
 
-console.log(await AJAX("http://localhost:5000/properties"));
+console.log(await AJAX("http://localhost:3000/properties"));

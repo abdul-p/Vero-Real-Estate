@@ -10,6 +10,7 @@ import homePageMapView from "./view/homePageMapView.js";
 import propertyPageView from "./view/propertyPageView.js";
 import propertyView from "./view/propertyView.js";
 import agentView from "./view/agentView.js";
+
 // import resultsView from './view/resultsView.js';
 
 function controlRegistration() {
@@ -283,6 +284,34 @@ async function init() {
   agentView.addFormSwitchHandler(controlAgentForm);
   headerView.scrollHandler();
   headerView.contactView();
+  headerView.menubarHandler((e) => {
+     document.querySelector('.menu').style.display = 'flex';
+  });
+  headerView.menubarCloseHandler();
+  headerView.menubarLinkHandler((target) => {
+     if (target === 'Home') {
+        window.location.href = 'index.html';
+     }
+     if (target === 'Buy') {
+        Buyhandler();
+     }
+     if (target === 'Rent') {
+        Renthandler();
+     }
+     if (target === 'Agent') {
+        window.location.href = 'agent.html';
+     }
+     if (target === 'Sign-in') {
+      const modal = document.querySelector('.auth-overlay');
+         if (modal) {
+                modal.classList.remove('hidden');
+            }else {
+                console.log('modal not visible')
+        }
+     }
+  }); 
+
+
 }
 
 // document.addEventListener('DOMContentLoaded', function () {

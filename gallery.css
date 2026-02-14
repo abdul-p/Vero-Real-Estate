@@ -19,6 +19,12 @@ body{
   background-color: var(--color-section-bg);
   color: var(--color-text);
 }
+.space-grotesk-regular {
+  font-family: "Space Grotesk", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
 nav {
   display: flex;
 }
@@ -1042,18 +1048,22 @@ footer {
 .main-top-filter{
   display: flex;
   justify-content: space-between;
-  width: 35%;
+  min-width: 25%;
 }
 .main-top-filter button {
+  display: flex;
+  align-items: center;
+  gap: 2px;
   border-radius: 5px;
-  padding: 15px;
+  padding: 10px;
   border: none;
   background-color: var(--color-card-bg);
   cursor: pointer;
+
 }
 .main-top>button{
   border-radius: 5px;
-  padding: 15px;
+  padding: 10px;
   border: none;
   background-color: var(--color-card-bg);
   margin: auto;
@@ -1262,4 +1272,317 @@ footer {
 }
 .hidden{
   display: none;
+}
+
+.navbar-button{
+  display: none;
+}
+.menu-icon {
+  font-size: 2.2rem !important;
+  color: var(--color-dark);
+  cursor: pointer;
+  border-radius: 10px;
+  text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(
+    90deg,
+    var(--color-section-bg),
+    var(--color-dark),
+    var(--color-primary)
+  );
+  background-clip: text;
+  background-size: 50px;
+  color: transparent;
+  /* opacity: 0; */
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-dark);
+  height: 70vh;
+  width: 80vw;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+  button {
+    align-self: flex-end;
+    margin: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--color-card-bg);
+    cursor: pointer;
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 100%;
+    li {
+      width: 100%;
+      padding: 10px;
+      list-style-type: none;
+      border-radius: 10px;
+      a {
+        text-decoration: none;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--color-card-bg);
+      }
+    }
+    li:hover {
+    background-color: var(--color-muted); transition: all 0.3s ease-in-out;
+  }
+  }
+
+  
+  display: none;
+}
+
+
+@media (max-width : 650px) {
+    .nav-links {
+      display: none;
+    }
+    .sign-in {
+      display: none;
+    }
+    .navbar-button{
+      display: block;
+    }
+    .hero-text h1 {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+    .hero-text{
+      top : 20% ;
+      margin-bottom: 5px;
+    }
+    .hero-text p {
+      font-size: 0.7rem;
+      font-weight: 400;
+    }
+    .hero-text button {
+      padding: 5px 7px;
+    }
+    .place-search {
+      margin: 0px;
+      min-height: 0px;
+    }
+    .place-search-input label {
+      font-size: 0.6rem;
+    }
+    .place-search-inputs {
+      width: 80dvw;
+    }
+    .place-search-filters {
+      display: none;
+    }
+    .place-search-button button {
+      padding: 5px 5px;
+    }
+    .navbar .logo{
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  .head-redirect {
+    font-size: 0.9rem !important;
+  }
+  .place-search-rooms{
+    display: none;
+  }
+  .place-search{
+    padding: 15px;
+  }
+  .stats-section-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .stats-section-text-h1{
+    width: 100%;
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+  .stats-section-text-vid {
+    gap: 20px;
+    width: 100%;
+  }
+  .stats-section-display{
+    display: flex;
+    flex-direction: column;
+  }
+  .stats-section-image2{
+    height: 300px;
+  }
+  .map-section{
+    flex-direction: column;
+  }
+  
+  .properties-head {
+    flex-direction: column;
+    align-items: center;
+    /* text-align: center; */
+    h1{
+      width: 100%;
+      font-size: 1.5rem;
+    }
+    p{
+      width: 100%;
+    }
+  }
+  .category-top{
+    flex-direction: column;
+    align-items: center;
+  }
+  .category-top-right {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .customers-feedbacks-head{
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+      width: 100%;
+      font-size: 1.5rem;
+    }
+    p {
+      width: 100%;
+    }
+  }
+  .customers-feedbacks-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .five {
+    p{
+      font-size: 0.5rem;
+    }
+  }
+  .footer-mid{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-p{
+    display: none;
+  }
+  .footer-mid-right{
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    .properties-footer, .resources {
+      display: none;
+    }
+    
+   
+  } 
+  .main-top-filter {
+      display: none;
+  }
+  .socials{
+      display: flex;
+      gap: 10px;
+      width: 100%;
+      ul {
+        display: flex;
+        gap: 10px;
+      }
+  }
+  .footer-bottom {
+    /* flex-direction: column; */
+    justify-content: center ;
+    align-items: center;
+    gap: 10px;
+    .terms {
+      margin: 0;
+    }
+  }
+  #pmap { 
+    display: none;
+  }
+  .main-top-filter {
+    display: none;
+  }
+  .main-top-location{
+    width: 80%;
+  }
+}
+
+@media (max-width : 450px) {
+  .hero-text h1 {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  .hero-text{
+    top : 15% ;
+    margin-bottom: 5px;
+  }
+  .hero-text p {
+    font-size: 0.6rem;
+    font-weight: 400;
+  }
+  .hero-text button {
+    padding: 4px 6px;
+    font-size: 0.7rem;
+  }
+  .newsletter {
+    padding: 10px;
+    h1 {
+      font-size: 1.2rem;
+
+    }
+    p{
+      font-size: 0.7rem;
+    }
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+    gap: 10px;
+    button {
+      width: 100px;
+    }
+  }
+  .registration {
+    flex-direction: column;
+    width: 90vw;
+    height: 85vh;
+    padding: 10px;
+    .sign-right {
+     display: none;
+    }
+
+    .sign-left {
+      width: 100%;
+      padding: 20px;
+      .registration-det {
+        h1 {
+          font-size: 1.2rem;
+        }
+        p {
+          font-size: 0.9rem;
+        }
+
+      }
+      .inputBox {
+        input {
+          width: 100%;
+        }
+      }
+    }
+  }
+  
+  
 }

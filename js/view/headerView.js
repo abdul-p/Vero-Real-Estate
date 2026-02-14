@@ -6,7 +6,10 @@ class HeaderView {
     _buttonDiv = document.querySelector('.properties-button');
     _contactSection = document.querySelector('.nav-contact');
     _categoryBt = document.querySelector('.category-bt');
-    _filter = document.querySelector('.place-search-filters')
+    _filter = document.querySelector('.place-search-filters');
+    _menus = document.querySelector('.menus');
+    _menuBar = document.querySelector('.menu-icon');
+    _menuBarClose = document.querySelector('.menu-close');
     
     logoHandler () {
         this._logo.style.opacity === 1 ? (this._logo.style.opacity = 0)
@@ -14,6 +17,30 @@ class HeaderView {
 
         this._logo.style.transition = "opacity 1.2s ease-in-out";
 
+    }
+
+    menubarHandler (handler) {
+        this._menuBar.addEventListener('click', (e) =>  {
+            e.preventDefault();
+            handler(e.target);
+        });
+    }
+
+    menubarCloseHandler () {
+        this._menuBarClose.addEventListener('click', (e) => {
+            e.preventDefault();
+            const menu = document.querySelector('.menu');
+            menu.style.display = 'none';
+        }) 
+    }
+
+    menubarLinkHandler (handler) {
+        this._menus.addEventListener('click', (e) => {
+            e.preventDefault(); 
+            const target = e.target.closest('.menu-navs'); 
+            if (!target) return; 
+            handler(target.dataset.name);
+        })
     }
 
     heroHandler () {
@@ -55,6 +82,7 @@ class HeaderView {
 
     scrollHandler () { 
         let scrollX = 0;
+        if (!this._buttonDiv) return;
         this._buttonDiv.addEventListener('click', (e) => {
             e.preventDefault();
             console.log('go right or left')
@@ -84,6 +112,7 @@ class HeaderView {
 
     contactView () {
         const newsletter = document.getElementById('newsletter');
+        if (!this._contactSection) return;
         this._contactSection.addEventListener('click', (e) =>  {
             e.preventDefault();
             this.scrollIntoView(newsletter);
@@ -96,6 +125,9 @@ class HeaderView {
     scrollIntoView(element) {
         element.scrollIntoView({ behavior: 'smooth' , block: 'center' , });
     }
+
+    
+
 }
 
 export default new HeaderView() ;
